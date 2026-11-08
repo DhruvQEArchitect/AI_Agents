@@ -39,6 +39,5 @@ while True:
         "content": assistant_reply
     })
     for message in messages:
-        print(message['role'].title())
-        print(message['content'])
+        print(f'{message['role'].title()}: {message["content"]}')
     print(f"Bot: {assistant_reply}\n")
