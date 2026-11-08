@@ -11,3 +11,11 @@ def read_prompts(filename):
     except FileNotFoundError:
         print(f"⚠️ Warning: Prompt file '{filename}' not found at {file_path}")
         return ""  # Return empty string or fallback prompt
+
+
+def select_prompt():
+    user_input = input('Select agent: ')
+    if user_input == "1": user_input = "SeniorQA.md"
+    if user_input == "2": user_input = "BDDScripter.md"
+    if user_input == "3": user_input = "BDDScenarioWriter.md"
+    return user_input

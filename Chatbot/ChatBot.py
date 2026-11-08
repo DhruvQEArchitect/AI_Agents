@@ -20,13 +20,9 @@ print('''
 2. BDD Scripter
 3. BDD Scenario Writer
 ''')
-agentToSelect = input('Select agent: ')
 
-if agentToSelect == "1": agentToSelect = "SeniorQA.md"
-if agentToSelect == "2": agentToSelect = "BDDScripter.md"
-if agentToSelect == "3": agentToSelect = "BDDScenarioWriter.md"
 messages = [{"role": "system",
-             "content": Helper.read_prompts(agentToSelect)}]
+             "content": Helper.read_prompts(Helper.select_prompt())}]
 
 while True:
     user_input = input("You: ")
