@@ -1,6 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+from helper import Helper
 
 load_dotenv()
 
@@ -14,7 +15,8 @@ models = client.models.list()
 for model in models.data:
     print(model.id)
 
-messages = []
+messages = [{"role": "system",
+             "content": Helper.read_prompts("SeniorQA.md")}]
 
 while True:
     user_input = input("You: ")
@@ -38,6 +40,8 @@ while True:
         "role": "assistant",
         "content": assistant_reply
     })
+
+    print("================Conversation History================")
     for message in messages:
         print(f'{message['role'].title()}: {message["content"]}')
     print(f"Bot: {assistant_reply}\n")
