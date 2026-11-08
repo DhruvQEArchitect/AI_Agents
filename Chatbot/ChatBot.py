@@ -15,8 +15,18 @@ models = client.models.list()
 for model in models.data:
     print(model.id)
 
+print('''
+1. Testing Guide
+2. BDD Scripter
+3. BDD Scenario Writer
+''')
+agentToSelect = input('Select agent: ')
+
+if agentToSelect == "1": agentToSelect = "SeniorQA.md"
+if agentToSelect == "2": agentToSelect = "BDDScripter.md"
+if agentToSelect == "3": agentToSelect = "BDDScenarioWriter.md"
 messages = [{"role": "system",
-             "content": Helper.read_prompts("SeniorQA.md")}]
+             "content": Helper.read_prompts(agentToSelect)}]
 
 while True:
     user_input = input("You: ")
