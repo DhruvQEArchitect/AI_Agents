@@ -14,14 +14,7 @@ models = client.models.list()
 for model in models.data:
     print(model.id)
 
-messages = [
-    {
-        "role": "system",
-        "content": "You are a helpful AI assistant."
-    }
-]
-
-print("Chatbot started! Type 'exit' to quit.\n")
+messages = []
 
 while True:
     user_input = input("You: ")
@@ -45,5 +38,7 @@ while True:
         "role": "assistant",
         "content": assistant_reply
     })
-
+    for message in messages:
+        print(message['role'].title())
+        print(message['content'])
     print(f"Bot: {assistant_reply}\n")
